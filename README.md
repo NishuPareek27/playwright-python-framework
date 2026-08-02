@@ -54,7 +54,6 @@ Playwright_Automation/
 │   └── test_login.py
 │
 ├── utils/
-│   ├── constants.py
 │   └── logger.py
 │
 ├── screenshots/
