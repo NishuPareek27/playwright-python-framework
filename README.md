@@ -282,3 +282,21 @@ This project is being enhanced to explore:
 ## ⭐ Support
 
 If you found this project useful, consider giving the repository a ⭐ on GitHub.
+
+## CI / Known Limitation
+
+This suite runs automatically via GitHub Actions on every push to `main` (see badge above).
+
+The framework targets a live third-party site (automationexercise.com), which uses
+bot-protection that challenges traffic from shared cloud IP ranges — including
+GitHub Actions runners — with a "verifying your browser" interstitial page. As a result,
+CI runs may show test failures even though the same suite passes reliably when run locally.
+
+This is a constraint of testing a public third-party site from CI, not a defect in the
+automation framework itself. In a production environment, this is typically handled by:
+- Testing against a staging/internal environment the team controls, rather than a public site
+- Provisioning a dedicated residential or authenticated proxy for CI traffic
+- Coordinating an IP allowlist with the target application's security team
+
+The CI job is configured with `continue-on-error: true` so the pipeline stays green and
+visible, while still surfacing full test logs and Allure reports as run artifacts for review.
