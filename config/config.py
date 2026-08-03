@@ -1,3 +1,3 @@
 BASE_URL = "https://automationexercise.com"
-BROWSER = "webkit"
-HEADLESS = False
+BROWSER = "chromium"
+HEADLESS = True

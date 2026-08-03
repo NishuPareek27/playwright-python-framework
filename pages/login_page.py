@@ -1,11 +1,12 @@
 import allure
+from pages.home_page import HomePage
 from utils.logger import get_logger
 from playwright.sync_api import expect
 from pages.base_page import BasePage
 
 
 logger = get_logger()
-class LoginPage(BasePage):
+class LoginPage(HomePage):
 
     def __init__(self, page):
 
@@ -26,6 +27,11 @@ class LoginPage(BasePage):
             "Your email or password is incorrect!"
         )
 
+        self.logout_link = page.get_by_role(
+            "link", name="Logout"
+        )
+
+
     
     def login(self, email, password):
 
@@ -41,10 +47,21 @@ class LoginPage(BasePage):
             self.login_button.click()
             logger.info("Clicking on the Login button")
 
+    def logout(self):
+        with allure.step("Click on the Logout link"):
+            self.logout_link.click()
+            logger.info("Clicking on the logout link")
 
     @allure.step("Verify invalid login error message")
     def verify_invalid_login_error(self):
 
         expect(
             self.invalid_login_error
+        ).to_be_visible()
+
+
+    def verify_user_logout(self):
+
+        expect(
+            self.signup_login_link
         ).to_be_visible()

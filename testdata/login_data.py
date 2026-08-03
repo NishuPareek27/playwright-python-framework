@@ -7,3 +7,7 @@ INVALID_LOGIN_DATA = [
     # ("someuser@test.com",""),
     # ("","")
 ]   
+
+VALID_LOGIN_DATA = [
+    ("ntest1@yopmail.com", "Test@123")
+]
