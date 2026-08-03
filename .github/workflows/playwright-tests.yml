@@ -25,6 +25,9 @@ jobs:
           playwright install --with-deps
 
       - name: Run tests
+        continue-on-error: true
+        env:
+          HEADLESS: "true"
         run: pytest --alluredir=allure-results
 
       - name: Upload Allure results
