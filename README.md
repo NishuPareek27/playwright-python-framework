@@ -300,3 +300,5 @@ automation framework itself. In a production environment, this is typically hand
 
 The CI job is configured with `continue-on-error: true` so the pipeline stays green and
 visible, while still surfacing full test logs and Allure reports as run artifacts for review.
+
+![Playwright Tests](https://github.com/NishuPareek27/playwright-python-framework/actions/workflows/playwright-tests.yml/badge.svg)
