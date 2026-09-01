@@ -18,5 +18,6 @@ def get_logger():
         console_handler.setFormatter(formatter)
 
         logger.addHandler(console_handler)
+        logger.propagate = False        # Prevent Log duplication
 
     return logger
