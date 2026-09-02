@@ -1,4 +1,3 @@
-import requests
 import json
 import allure
 from api.clients.api_clients import APIClient
