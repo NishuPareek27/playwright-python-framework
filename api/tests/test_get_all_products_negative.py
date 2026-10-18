@@ -3,6 +3,7 @@ import allure
 from api.clients.api_clients import APIClient
 from utils.logger import get_logger
 from api.endpoints import *
+from playwright.sync_api import expect
 
 logger = get_logger()
 client = APIClient()
@@ -35,6 +36,7 @@ def test_get_all_products_with_invalid_endpoint():
     logger.info(f"Status Code: {response.status_code}")
     with allure.step("Validate status code for invalid endpoint"):
         assert response.status_code == 404
+
 
 
 @allure.feature("Products API: Get All Products")
